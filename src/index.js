@@ -1,5 +1,7 @@
 const menuRoutes = require('../src/controller/menu')
 const profileRoutes = require('../src/controller/profile')
+const reservationRoutes = require('../src/controller/reservation')
+const orderRoutes = require('../src/controller/order')
 
 const mongoose = require('mongoose');
 
@@ -38,7 +40,10 @@ app.use('/api/menu', menuRoutes);
 
 // Profile Routes
 app.use('/api/profile', profileRoutes);
-
+app.use('/api/reservations', reservationRoutes);
+app.use('/api/orders', orderRoutes);
+// Serve static files (for uploaded images)
+app.use('/uploads', express.static('uploads'));
 app.use("/hello",(req,res)=>res.status(200).json({message:"yes"}))
 
 // Start the server

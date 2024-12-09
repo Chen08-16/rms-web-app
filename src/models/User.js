@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
   dob: { type: Date},
   email: { type: String},
   phone: { type: String},
+  role: { type: String, enum: ["staff", "customer"], default: "customer" },
 });
 
 module.exports = mongoose.model('User', UserSchema);

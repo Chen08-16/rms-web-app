@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 
-const ReservationSchema = new mongoose.Schema({
-  reservationid: { type: String, required: true },
-  tablenumber: { type: Number, required: true },
-  username: { type: String, required: true }, // Foreign key-like reference to User
-  phone: { type: String, required: true },
-  status: { type: String, enum: ['active', 'complete'], required: true },
-  createdAt: { type: Date, default: Date.now }
+// Reservation Schema
+const reservationSchema = new mongoose.Schema({
+  uid: { type: String, required: true }, // User ID
+  customerName: { type: String, required: true },
+  customerContact: { type: String, required: true },
+  date: { type: String, required: true },
+  time: { type: String, required: true },
+  amPm: { type: String, required: true },
+  numberOfPeople: { type: Number, required: true },
+  tableNumber: { type: Number, required: true },
 });
 
-module.exports = mongoose.model('Reservation', ReservationSchema);
+module.exports = mongoose.model('Reservation', reservationSchema);
+
